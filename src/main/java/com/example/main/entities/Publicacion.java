@@ -1,4 +1,4 @@
-package com.example.entities;
+package com.example.main.entities;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -30,6 +30,11 @@ public class Publicacion implements Serializable{
 	
 	@Column(name="AUTOR")
 	private Autor autor;
+	
+
+	public Publicacion() {
+		super();
+	}
 
 	public Publicacion(long idPublicacion, String titulo, Date fechaPublicacion, Autor autor) {
 		this.idPublicacion = idPublicacion;

@@ -1,4 +1,4 @@
-package com.example.rest;
+package com.example.main.rest;
 
 
 
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.entities.Publicacion;
-import com.example.service.IPublicacionService;
+import com.example.main.entities.Publicacion;
+import com.example.main.service.IPublicacionService;
 
 @RestController
 @RequestMapping("/v1")

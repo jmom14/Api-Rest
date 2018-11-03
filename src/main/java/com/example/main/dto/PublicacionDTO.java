@@ -1,4 +1,4 @@
-package com.example.dto;
+package com.example.main.dto;
 
 import java.io.Serializable;
 import java.util.Date;

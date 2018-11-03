@@ -1,15 +1,16 @@
-package com.example.service;
+package com.example.main.service;
 
-import java.util.ArrayList;
+
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.example.converter.Converter;
-import com.example.dto.PublicacionDTO;
-import com.example.entities.Publicacion;
-import com.example.repository.PublicacionRepository;
+import com.example.main.converter.Converter;
+import com.example.main.dto.PublicacionDTO;
+import com.example.main.entities.Publicacion;
+import com.example.main.repository.PublicacionRepository;
 
+@Service
 public class PublicacionService implements IPublicacionService {
 
 	@Autowired

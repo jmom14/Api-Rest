@@ -1,12 +1,12 @@
-package com.example.converter;
+package com.example.main.converter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.example.dto.PublicacionDTO;
-import com.example.entities.Publicacion;
+import com.example.main.dto.PublicacionDTO;
+import com.example.main.entities.Publicacion;
 
 @Component
 public class Converter {

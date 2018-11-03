@@ -1,4 +1,4 @@
-package com.example.entities;
+package com.example.main.entities;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -7,6 +7,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name ="AUTOR")
@@ -28,6 +30,7 @@ public class Autor implements Serializable{
 	private String apellido;
 	
 	@Column(name="FECHA_NACIMIENTO")
+	@Temporal(TemporalType.DATE)
 	private Date fechaNacimiento;
 	
 	

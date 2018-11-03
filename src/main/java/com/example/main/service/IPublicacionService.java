@@ -1,9 +1,9 @@
-package com.example.service;
+package com.example.main.service;
 
 import java.util.List;
 
-import com.example.dto.PublicacionDTO;
-import com.example.entities.Publicacion;
+import com.example.main.dto.PublicacionDTO;
+import com.example.main.entities.Publicacion;
 
 
 public interface IPublicacionService {
