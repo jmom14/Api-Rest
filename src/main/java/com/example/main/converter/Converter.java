@@ -20,7 +20,7 @@ public class Converter {
 			tmpPublicacion.setIdPublicacion(p.getIdPublicacion());
 			tmpPublicacion.setTitulo(p.getTitulo());
 			tmpPublicacion.setFechaPublicacion(p.getFechaPublicacion());
-			tmpPublicacion.setAutor(p.getAutor().getNombre());
+			tmpPublicacion.setIdAutor(p.getAutor().getIdAutor());
 			
 			out.add(tmpPublicacion);
 		}
@@ -34,7 +34,7 @@ public class Converter {
 		tmpPublicacion.setIdPublicacion(p.getIdPublicacion());
 		tmpPublicacion.setTitulo(p.getTitulo());
 		tmpPublicacion.setFechaPublicacion(p.getFechaPublicacion());
-		tmpPublicacion.setAutor(p.getAutor().getNombre());
+		tmpPublicacion.setIdAutor(p.getAutor().getIdAutor());
 		
 		return tmpPublicacion;
 		

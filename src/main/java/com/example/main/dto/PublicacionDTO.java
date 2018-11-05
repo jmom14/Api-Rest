@@ -13,7 +13,7 @@ public class PublicacionDTO implements Serializable {
 	private long idPublicacion;
 	private String titulo;
 	private Date fechaPublicacion;
-	private String autor;
+	private long idAutor;
 
 	public long getIdPublicacion() {
 		return idPublicacion;
@@ -39,14 +39,12 @@ public class PublicacionDTO implements Serializable {
 		this.fechaPublicacion = fechaPublicacion;
 	}
 
-	public String getAutor() {
-		return autor;
+	public long getIdAutor() {
+		return idAutor;
 	}
 
-	public void setAutor(String autor) {
-		this.autor = autor;
+	public void setIdAutor(long idAutor) {
+		this.idAutor = idAutor;
 	}
-
-	
 
 }
