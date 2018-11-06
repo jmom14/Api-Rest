@@ -3,9 +3,13 @@ package com.example.main.entities;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -28,12 +32,12 @@ public class Publicacion implements Serializable{
 	@Column(name="FECHA_PUBLICACION")
 	private Date fechaPublicacion;
 	
-	@Column(name="AUTOR")
+	@ManyToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "ID_AUTOR")
 	private Autor autor;
 	
 
 	public Publicacion() {
-		super();
 	}
 
 	public Publicacion(long idPublicacion, String titulo, Date fechaPublicacion, Autor autor) {

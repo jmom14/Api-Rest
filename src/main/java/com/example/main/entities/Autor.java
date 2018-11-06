@@ -1,11 +1,18 @@
 package com.example.main.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -31,8 +38,14 @@ public class Autor implements Serializable{
 	
 	@Column(name="FECHA_NACIMIENTO")
 	@Temporal(TemporalType.DATE)
-	private Date fechaNacimiento;
+	private Date fechaNacimiento;	
 	
+	@ManyToOne(fetch= FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "ID_NACIONALIDAD")
+	private Nacionalidad nacionalidad;
+	
+	@OneToMany(fetch = FetchType.EAGER, mappedBy="autor")
+	private List<Publicacion> publicaciones = new ArrayList<Publicacion>();
 	
 	public long getIdAutor() {
 		return idAutor;
@@ -64,6 +77,22 @@ public class Autor implements Serializable{
 
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	public Nacionalidad getNacionalidad() {
+		return nacionalidad;
+	}
+
+	public void setNacionalidad(Nacionalidad nacionalidad) {
+		this.nacionalidad = nacionalidad;
+	}
+
+	public List<Publicacion> getPublicaciones() {
+		return publicaciones;
+	}
+
+	public void setPublicaciones(List<Publicacion> publicaciones) {
+		this.publicaciones = publicaciones;
 	}
 	
 	

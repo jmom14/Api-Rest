@@ -1,10 +1,19 @@
 package com.example.main.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+
+@Entity
+@Table(name = "NACIONALIDAD")
 public class Nacionalidad implements Serializable {
 	
 	/**
@@ -21,6 +30,9 @@ public class Nacionalidad implements Serializable {
 	
 	@Column(name="NACIONALIDAD")
 	private String nacionalidad;
+	
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "nacionalidad")
+	private List<Autor> autores = new ArrayList<Autor>();
 
 	public long getIdNacionalidad() {
 		return idNacionalidad;
@@ -44,6 +56,14 @@ public class Nacionalidad implements Serializable {
 
 	public void setNacionalidad(String nacionalidad) {
 		this.nacionalidad = nacionalidad;
+	}
+
+	public List<Autor> getAutores() {
+		return autores;
+	}
+
+	public void setAutores(List<Autor> autores) {
+		this.autores = autores;
 	}
 	
 	
