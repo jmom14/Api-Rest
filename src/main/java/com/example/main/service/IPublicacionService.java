@@ -8,7 +8,7 @@ import com.example.main.entities.Publicacion;
 
 public interface IPublicacionService {
 	
-	public boolean create(PublicacionDTO publicacion);
+	public PublicacionDTO create(PublicacionDTO publicacion);
 	
 	public boolean delete(long id);
 	

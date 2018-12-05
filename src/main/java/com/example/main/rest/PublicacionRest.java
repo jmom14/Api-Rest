@@ -23,7 +23,7 @@ public class PublicacionRest {
 	private IPublicacionService publicacionService;
 	
 	@PutMapping("/publicacion")
-	public boolean addPublicacion(@RequestBody PublicacionDTO publicacion ) {
+	public PublicacionDTO addPublicacion(@RequestBody PublicacionDTO publicacion ) {
 		
 		return publicacionService.create(publicacion);
 	}

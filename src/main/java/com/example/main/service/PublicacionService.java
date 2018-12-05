@@ -24,39 +24,38 @@ public class PublicacionService implements IPublicacionService {
 	private static final Log LOGGER = LogFactory.getLog(PublicacionService.class);
 
 	@Override
-	public boolean create(PublicacionDTO publicacion) {
-		boolean out = false;
+	public PublicacionDTO create(PublicacionDTO publicacion) {
 		try {
-			Autor autor = autorRepository.findById(publicacion.getIdAutor()).get();
+			long num = 1;
+			Autor autor = autorRepository.findById(num).get();
 		
 			Publicacion entidad = new Publicacion();			
 			entidad.setIdPublicacion(publicacion.getIdPublicacion());
 			entidad.setTitulo(publicacion.getTitulo());
 			entidad.setFechaPublicacion(publicacion.getFechaPublicacion());
-			entidad.setAutor(autor);
-			
+			entidad.setAutor(autor);			
 			publicacionRepository.save(entidad);
-			out = true;
-		} catch (Exception e) {
+			return publicacion;
+					
+					} catch (Exception e) {						
 			LOGGER.error("HUBO UN ERROR INSERTANDO LA PUBLICACION",e);
-			out = false;
+			return null;
 		}
-		return out;
+		
 	}
 
 	@Override
 	public boolean delete(long id) {
-		boolean out = true;
+	
 		try {
 
 			Publicacion entity = publicacionRepository.findById(id).get();
 			publicacionRepository.delete(entity);
-
-		} catch (Exception e) {
-			out = false;
-			LOGGER.error("HUBO UN ERROR ELIMINANDO LA PUBLICACION",e);			
+			return true;
+		} catch (Exception e) {			
+			LOGGER.error("HUBO UN ERROR ELIMINANDO LA PUBLICACION",e);
+			return false;
 		}
-		return out;
 	}
 
 	@Override
@@ -78,26 +77,29 @@ public class PublicacionService implements IPublicacionService {
 
 	@Override
 	public List<PublicacionDTO> findAll() {
-		List<PublicacionDTO> out = null;
 
 		try {		
-			out = converter.convertirPublicaciones(publicacionRepository.findAll());
-		} catch (Exception e) {
+			return converter.convertirPublicaciones(publicacionRepository.findAll());
+			
+		} catch (Exception e) {			
 			LOGGER.error("ERROR AL OBTENER TODAS LAS PUBLICACIONES",e);
+			return null;
 		}
 		
-		return out;
 	}
 
 	@Override
 	public PublicacionDTO findById(long id) {
-		PublicacionDTO out = null;
+		
 		try {
-			out = converter.convertirPublicacion(publicacionRepository.findById(id).get());
+			return  converter.convertirPublicacion(publicacionRepository.findById(id).get());
 		} catch (Exception e) {
+			
 			LOGGER.error("ERRROR AL OBTENER UNA PUBLICACION",e);
+			return null;
+		
 		}
-		return out;
+	
 	}
 
 }

@@ -7,10 +7,14 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 @Entity
@@ -24,12 +28,14 @@ public class Publicacion implements Serializable{
 
 	@Id
 	@Column(name="ID_PUBLICACION")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idPublicacion;
 	
 	@Column(name="TITULO")
 	private String titulo;
 	
 	@Column(name="FECHA_PUBLICACION")
+	@Temporal(TemporalType.DATE)
 	private Date fechaPublicacion;
 	
 	@ManyToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
