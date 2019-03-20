@@ -43,11 +43,11 @@ public class Autor implements Serializable{
 	@Temporal(TemporalType.DATE)
 	private Date fechaNacimiento;	
 	
-	@ManyToOne(fetch= FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch= FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "ID_NACIONALIDAD")
 	private Nacionalidad nacionalidad;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy="autor")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy="autor")
 	private List<Publicacion> publicaciones = new ArrayList<Publicacion>();
 	
 	public long getIdAutor() {

@@ -6,11 +6,11 @@ import com.example.main.dto.AutorDTO;
 
 public interface IAutorService {
 
-	public boolean create(AutorDTO publicacion);
+	public AutorDTO create(AutorDTO autor);
 	
 	public boolean delete(long id);
 	
-	public boolean update(long id);
+	public boolean update(long id, AutorDTO autor);
 	
 	public List<AutorDTO> findAll();
 	

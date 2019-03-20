@@ -1,0 +1,21 @@
+Nacionalidades
+{
+"nacionalidad": "Argentina",
+"pais": "Argentina"
+}
+
+
+Autores
+{
+"nombre" : "Tomas",
+"apellido" : "Abraham",
+"fechaNacimiento" : "2018-09-09",
+"idNacionalidad": 1
+}
+
+Publicacion
+{
+"titulo" : "Primera nota",
+"fechaPublicacion" : "2018-09-09",
+"idAutor" : 1
+}

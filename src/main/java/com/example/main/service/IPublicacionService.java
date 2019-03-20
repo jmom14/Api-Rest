@@ -2,10 +2,12 @@ package com.example.main.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
 import com.example.main.dto.PublicacionDTO;
-import com.example.main.entities.Publicacion;
 
-
+@Service
 public interface IPublicacionService {
 	
 	public PublicacionDTO create(PublicacionDTO publicacion);
@@ -17,6 +19,8 @@ public interface IPublicacionService {
 	public List<PublicacionDTO> findAll();
 	
 	public PublicacionDTO findById(long id);
+	
+	public List<PublicacionDTO> getPaged(Pageable pageable);
 	
 	
 

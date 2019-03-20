@@ -5,6 +5,7 @@ package com.example.main.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,26 +23,26 @@ public class PublicacionRest {
 	@Autowired
 	private IPublicacionService publicacionService;
 	
-	@PutMapping("/publicacion")
+	@PutMapping("/publicaciones")
 	public PublicacionDTO addPublicacion(@RequestBody PublicacionDTO publicacion ) {
 		
 		return publicacionService.create(publicacion);
 	}
 	
-	@DeleteMapping("/publicacion/{id}")
+	@DeleteMapping("/publicaciones/{id}")
 	public boolean deletePublicacion(@PathVariable(value = "id") Long id) {
 		
 		return publicacionService.delete(id);
 	}
 	
-	@PutMapping("/publicacion/{id}")
+	@PutMapping("/publicaciones/{id}")
 	public boolean updatePublicacion(@PathVariable(value = "id") Long id,
              @RequestBody PublicacionDTO publicacion) {
 		
 		return publicacionService.update(id, publicacion);
 	}
 	
-	@GetMapping("/publicacion/{id}")
+	@GetMapping("/publicaciones/{id}")
 	public PublicacionDTO getById(Long id) {
 		
 		return publicacionService.findById(id);
@@ -52,5 +53,13 @@ public class PublicacionRest {
 		
 		return publicacionService.findAll();
 	}
+	
+	@GetMapping("/publicaciones/paged")
+	public List<PublicacionDTO> getAllPaged(Pageable pageable){
+		
+		return publicacionService.getPaged(pageable);
+	}
+	
+	
 
 }

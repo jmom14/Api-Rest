@@ -23,19 +23,19 @@ public class NacionalidadRest {
 	@Autowired
 	private NacionalidadService nacionalidadService;
 
-	@PutMapping("/nacionalidad")
+	@PutMapping("/nacionalidades")
 	public NacionalidadDTO addNacionalidad(@RequestBody NacionalidadDTO nacionalidad) {
 		
 		return nacionalidadService.create(nacionalidad);
 	}
 	
-	@DeleteMapping("/nacionalidad/{id}")
+	@DeleteMapping("/nacionalidades/{id}")
 	public boolean deleteNacionalidad(@PathVariable(value ="id") long id) {
 		
 		return nacionalidadService.delete(id);
 	}
 	
-	@PostMapping("/nacionalidad/{id}")
+	@PutMapping("/nacionalidades/{id}")
 	public boolean updateNacionalidad(@PathVariable(value="id") long id,
 														  @RequestBody NacionalidadDTO nacionalidad) {
 		return nacionalidadService.update(id, nacionalidad);
@@ -48,7 +48,7 @@ public class NacionalidadRest {
 		return nacionalidadService.findAll();
 	}
 
-	@GetMapping("/nacionalidad/{id}")
+	@GetMapping("/nacionalidades/{id}")
 	public NacionalidadDTO getById(@PathVariable(value = "id") long id) {
 		
 		return nacionalidadService.findById(id);
