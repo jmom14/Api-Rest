@@ -5,11 +5,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import com.example.main.entities.Publicacion;
+import com.example.main.entities.Publication;
 
 @Repository
-public interface PublicacionRepository extends JpaRepository<Publicacion, Long> {
+public interface PublicacionRepository extends JpaRepository<Publication, Long> {
 
-	Page<Publicacion> findAll(Pageable pageable);
+	Page<Publication> findAll(Pageable pageable);
 	
 }

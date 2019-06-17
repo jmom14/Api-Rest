@@ -11,45 +11,45 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.main.dto.AutorDTO;
-import com.example.main.service.AutorService;
+import com.example.main.dto.AuthorDTO;
+import com.example.main.service.abstrct.IAuthorService;
 
 @RestController
 @RequestMapping("/v1")
 public class AutorRest {
 	
 	@Autowired
-	private AutorService autorService;
+	private IAuthorService authorService;
 	
 	@PutMapping("/autores")
-	public AutorDTO addAutor(@RequestBody AutorDTO autor) {
+	public AuthorDTO addAutor(@RequestBody AuthorDTO autor) {
 		
-		return autorService.create(autor);
+		return authorService.create(autor);
 	}
 	
 	@DeleteMapping("/autores/{id}")
 	public boolean deleteAutor(@PathVariable(value ="id") long id) {
 		
-		return autorService.delete(id);
+		return authorService.delete(id);
 	}
 	
 	@PutMapping("/autores/{id}")
 	public boolean updateAutor(@PathVariable(value ="id") long id, 
-											    @RequestBody AutorDTO autor) {
+											    @RequestBody AuthorDTO autor) {
 		
-		return autorService.update(id, autor);
+		return authorService.update(autor, id);
 	}
 	
 	@GetMapping("/autores")
-	public List<AutorDTO> getAll(){
+	public List<AuthorDTO> getAll(){
 		
-		return autorService.findAll(); 
+		return authorService.findAll(); 
 	}
 	
 	@GetMapping("/autores/{id}")
-	public AutorDTO getById(@PathVariable(value = "id") long id) {
+	public AuthorDTO getById(@PathVariable(value = "id") long id) {
 		
-		return autorService.findById(id);
+		return authorService.findById(id);
 	}
 	
 
