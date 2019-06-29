@@ -17,40 +17,34 @@ import com.example.main.service.abstrct.INacionalityService;
 
 @RestController
 @RequestMapping("/v1")
-public class NacionalidadRest {
+public class NacionalityRest {
 	
 	@Autowired
-	private INacionalityService nacionalidadService;
+	private INacionalityService nacionalityService;
 
-	@PutMapping("/nacionalidades")
-	public NacionalityDTO addNacionalidad(@RequestBody NacionalityDTO nacionalidad) {
-		
-		return nacionalidadService.create(nacionalidad);
+	@PutMapping("/nacionalities")
+	public NacionalityDTO addNacionality(@RequestBody NacionalityDTO nacionality) {
+		return nacionalityService.create(nacionality);
 	}
 	
-	@DeleteMapping("/nacionalidades/{id}")
-	public boolean deleteNacionalidad(@PathVariable(value ="id") long id) {
-		
-		return nacionalidadService.delete(id);
+	@DeleteMapping("/nacionalities/{id}")
+	public boolean deleteNacionality(@PathVariable(value ="id") long id) {
+		return nacionalityService.delete(id);
 	}
 	
-	@PutMapping("/nacionalidades/{id}")
-	public boolean updateNacionalidad(@PathVariable(value = "id") long id,
-														  @RequestBody NacionalityDTO nacionalidad) {
-		return nacionalidadService.update(nacionalidad, id);
-		
+	@PutMapping("/nacionalities/{id}")
+	public boolean updateNacionality(@PathVariable(value = "id") long id,
+														  @RequestBody NacionalityDTO nacionality) {
+		return nacionalityService.update(nacionality, id);
 	}
 	
-	@GetMapping("/nacionalidades")
+	@GetMapping("/nacionalities")
 	public List<NacionalityDTO> getAll(){
-		
-		return nacionalidadService.findAll();
+		return nacionalityService.findAll();
 	}
 
-	@GetMapping("/nacionalidades/{id}")
+	@GetMapping("/nacionalities/{id}")
 	public NacionalityDTO getById(@PathVariable(value = "id") long id) {
-		
-		return nacionalidadService.findById(id);
+		return nacionalityService.findById(id);
 	}
-
 }

@@ -11,17 +11,17 @@ import com.example.main.converter.Converter;
 import com.example.main.dto.AuthorDTO;
 import com.example.main.entities.Author;
 import com.example.main.entities.Nacionality;
-import com.example.main.repository.AutorRepository;
-import com.example.main.repository.NacionalidadRepository;
+import com.example.main.repository.AuthorRepository;
+import com.example.main.repository.NacionalityRepository;
 import com.example.main.service.abstrct.IAuthorService;
 
 @Service
 public class AuthorService implements IAuthorService {
 
 	@Autowired
-	private AutorRepository autorRepository;
+	private AuthorRepository autorRepository;
 	@Autowired
-	private NacionalidadRepository nacionalidadRepository;
+	private NacionalityRepository nacionalidadRepository;
 	@Autowired
 	private Converter converter;
 
@@ -64,7 +64,6 @@ public class AuthorService implements IAuthorService {
 			author.setNacionality(nac);
 			autorRepository.save(author);
 			return true;
-
 		} catch (Exception e) {
 			LOGGER.error("HUBO UN ERROR ACTUALIZANDO EL AUTOR", e);
 		}
@@ -91,5 +90,4 @@ public class AuthorService implements IAuthorService {
 			return null;
 		}
 	}
-
 }

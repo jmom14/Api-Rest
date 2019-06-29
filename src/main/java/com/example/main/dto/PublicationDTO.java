@@ -22,9 +22,9 @@ public class PublicationDTO implements Serializable {
 	private long authorId;
 	
 	public PublicationDTO(Publication publication) {
+		this.publicationId = publication.getPublicationId();
 		this.title = publication.getTitle();
 		this.publicationDate = publication.getPublicationDate();
 		this.authorId = publication.getAuthor().getAuthorId();
 	}
-
 }

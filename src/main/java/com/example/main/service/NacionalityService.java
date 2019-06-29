@@ -10,14 +10,14 @@ import org.springframework.stereotype.Service;
 import com.example.main.converter.Converter;
 import com.example.main.dto.NacionalityDTO;
 import com.example.main.entities.Nacionality;
-import com.example.main.repository.NacionalidadRepository;
+import com.example.main.repository.NacionalityRepository;
 import com.example.main.service.abstrct.INacionalityService;
 
 @Service
 public class NacionalityService implements INacionalityService{
 
 	@Autowired
-	private NacionalidadRepository nacionalidadRepository;
+	private NacionalityRepository nacionalidadRepository;
 	
 	@Autowired
 	private Converter converter;

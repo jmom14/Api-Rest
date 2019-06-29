@@ -46,5 +46,4 @@ public class Nacionality implements Serializable {
 		this.country = dto.getCountry();
 		this.nacionality = dto.getNacionality();
 	}
-
 }

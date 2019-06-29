@@ -8,8 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.example.main.entities.Publication;
 
 @Repository
-public interface PublicacionRepository extends JpaRepository<Publication, Long> {
-
-	Page<Publication> findAll(Pageable pageable);
+public interface PublicationRepository extends JpaRepository<Publication, Long> {
 	
+	Page<Publication> findAll(Pageable pageable);	
 }

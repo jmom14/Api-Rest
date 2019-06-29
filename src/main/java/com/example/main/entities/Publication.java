@@ -53,5 +53,4 @@ public class Publication implements Serializable{
 		this.publicationDate = dto.getPublicationDate();
 		this.author = author;
 	}
-
 }

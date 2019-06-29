@@ -3,9 +3,9 @@ package com.example.main.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.main.entities.Nacionality;
+import com.example.main.entities.Author;
 
 @Repository
-public interface NacionalidadRepository extends JpaRepository<Nacionality, Long>{
+public interface AuthorRepository extends JpaRepository<Author, Long>{
 
 }

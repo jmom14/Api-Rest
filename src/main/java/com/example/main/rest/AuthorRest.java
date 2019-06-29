@@ -16,41 +16,34 @@ import com.example.main.service.abstrct.IAuthorService;
 
 @RestController
 @RequestMapping("/v1")
-public class AutorRest {
+public class AuthorRest {
 	
 	@Autowired
 	private IAuthorService authorService;
 	
-	@PutMapping("/autores")
-	public AuthorDTO addAutor(@RequestBody AuthorDTO autor) {
-		
-		return authorService.create(autor);
+	@PutMapping("/authores")
+	public AuthorDTO addAuthor(@RequestBody AuthorDTO author) {		
+		return authorService.create(author);
 	}
 	
-	@DeleteMapping("/autores/{id}")
-	public boolean deleteAutor(@PathVariable(value ="id") long id) {
-		
+	@DeleteMapping("/authores/{id}")
+	public boolean deleteAuthor(@PathVariable(value ="id") long id) {
 		return authorService.delete(id);
 	}
 	
-	@PutMapping("/autores/{id}")
-	public boolean updateAutor(@PathVariable(value ="id") long id, 
-											    @RequestBody AuthorDTO autor) {
-		
-		return authorService.update(autor, id);
+	@PutMapping("/authores/{id}")
+	public boolean updateAuthor(@PathVariable(value ="id") long id, 
+											    @RequestBody AuthorDTO author) {
+		return authorService.update(author, id);
 	}
 	
-	@GetMapping("/autores")
+	@GetMapping("/authores")
 	public List<AuthorDTO> getAll(){
-		
 		return authorService.findAll(); 
 	}
 	
-	@GetMapping("/autores/{id}")
-	public AuthorDTO getById(@PathVariable(value = "id") long id) {
-		
+	@GetMapping("/authores/{id}")
+	public AuthorDTO getById(@PathVariable(value = "id") long id) {		
 		return authorService.findById(id);
 	}
-	
-
 }

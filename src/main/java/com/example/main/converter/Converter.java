@@ -37,5 +37,4 @@ public class Converter {
 	public AuthorDTO convertitAutor(Author author) {
 		return new AuthorDTO(author);
 	}
-
 }

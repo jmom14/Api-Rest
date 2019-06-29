@@ -28,6 +28,5 @@ public class AuthorDTO implements Serializable{
 		this.lastname = author.getLastname();
 		this.birthDate = author.getBirthDate();
 		this.nacionalityId = author.getNacionality().getNacionalityId();				
-	}
-	
+	}	
 }

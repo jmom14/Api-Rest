@@ -11,8 +11,8 @@ import com.example.main.converter.Converter;
 import com.example.main.dto.PublicationDTO;
 import com.example.main.entities.Author;
 import com.example.main.entities.Publication;
-import com.example.main.repository.AutorRepository;
-import com.example.main.repository.PublicacionRepository;
+import com.example.main.repository.AuthorRepository;
+import com.example.main.repository.PublicationRepository;
 import com.example.main.service.abstrct.IPublicationService;
 
 @Service
@@ -20,10 +20,10 @@ public class PublicationService implements IPublicationService{
 
 
 	@Autowired
-	private PublicacionRepository publicacionRepository;
+	private PublicationRepository publicacionRepository;
 	
 	@Autowired
-	private AutorRepository autorRepository;
+	private AuthorRepository autorRepository;
 	
 	@Autowired
 	private Converter converter;

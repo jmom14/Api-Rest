@@ -1,7 +1,5 @@
 package com.example.main.rest;
 
-
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,48 +18,39 @@ import com.example.main.service.abstrct.IServices;
 
 @RestController
 @RequestMapping("/v1")
-public class PublicacionRest {
+public class PublicationRest {
 	
 	@Autowired
-	private IPublicationService publicacionService;
+	private IPublicationService publicationService;
 	
-	@PutMapping("/publicaciones")
-	public PublicationDTO addPublicacion(@RequestBody PublicationDTO publicacion ) {
-		
-		return publicacionService.create(publicacion);
+	@PutMapping("/publications")
+	public PublicationDTO addPublication(@RequestBody PublicationDTO publication) {
+		return publicationService.create(publication);
 	}
 	
-	@DeleteMapping("/publicaciones/{id}")
-	public boolean deletePublicacion(@PathVariable(value = "id") Long id) {
-		
-		return publicacionService.delete(id);
+	@DeleteMapping("/publications/{id}")
+	public boolean deletePublication(@PathVariable(value = "id") Long id) {
+		return publicationService.delete(id);
 	}
 	
-	@PutMapping("/publicaciones/{id}")
-	public boolean updatePublicacion(@PathVariable(value = "id") Long id,
+	@PutMapping("/publications/{id}")
+	public boolean updatePublication(@PathVariable(value = "id") Long id,
              @RequestBody PublicationDTO publicacion) {
-		
-		return publicacionService.update(publicacion, id);
+		return publicationService.update(publicacion, id);
 	}
 	
-	@GetMapping("/publicaciones/{id}")
+	@GetMapping("/publications/{id}")
 	public PublicationDTO getById(Long id) {
-		
-		return publicacionService.findById(id);
+		return publicationService.findById(id);
 	}
 	
-	@GetMapping("/publicaciones")
+	@GetMapping("/publications")
 	public List<PublicationDTO> getAll(){
-		
-		return publicacionService.findAll();
+		return publicationService.findAll();
 	}
 	
-	@GetMapping("/publicaciones/paged")
+	@GetMapping("/publicacions/paged")
 	public List<PublicationDTO> getAllPaged(Pageable pageable){
-		
-		return publicacionService.getPaged(pageable);
+		return publicationService.getPaged(pageable);
 	}
-	
-	
-
 }
